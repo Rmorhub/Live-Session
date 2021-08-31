@@ -1,20 +1,27 @@
 // ===============================================================================
 
 function compareObjects(obj1, obj2) {
-  // put your code here
-
-  let firstObj = Object.entries(obj1);
-  console.log(firstObj);
-  let secondObj = Object.entries(obj2);
-  firstObj = firstObj.join();
-  console.log(firstObj);
-  secondObj = secondObj.join();
-  console.log(secondObj);
-  if (firstObj !== secondObj) {
+  if (Object.entries(obj1).join() !== Object.entries(obj2).join()) {
     return false;
   }
   return true;
 }
+
+// function compareObjects(obj1, obj2) {
+//   // put your code here
+
+//   let firstObj = Object.entries(obj1);
+//   console.log(firstObj);
+//   let secondObj = Object.entries(obj2);
+//   firstObj = firstObj.join();
+//   console.log(firstObj);
+//   secondObj = secondObj.join();
+//   console.log(secondObj);
+//   if (firstObj !== secondObj) {
+//     return false;
+//   }
+//   return true;
+// }
 
 // examples
 const obj1 = {

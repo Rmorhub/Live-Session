@@ -33,7 +33,7 @@
 //   }
 //   function getRecords(type = 'none') {
 //     if (type !== 'none') {
-//       const getmemory = memory.filter(element => {
+//       const getmemory = memory.filter((element) => {
 //         if (element.type === type) {
 //           return element;
 //         }
@@ -50,9 +50,18 @@
 //   };
 // };
 
+// const logger1 = createLogger();
+// logger1.error('some error');
+// logger1.error('some error text');
+// logger1.log('some log');
+// console.log(logger1.getRecords());
+
+// const logger2 = createLogger();
+// logger2.error('unexpected error');
+// console.log(logger2.getRecords());
 // good
 
-export const createLogger = () => {
+const createLogger = () => {
   const memory = [];
 
   function warn(text) {
@@ -74,7 +83,7 @@ export const createLogger = () => {
       type,
     });
   }
-  
+
   // better option for func
   // function getRecords(type) {
   //   let res = memory;
@@ -98,3 +107,13 @@ export const createLogger = () => {
     getRecords,
   };
 };
+
+const logger1 = createLogger();
+logger1.error('some error');
+logger1.error('some error text');
+logger1.log('some log');
+console.log(logger1.getRecords());
+
+const logger2 = createLogger();
+logger2.error('unexpected error');
+console.log(logger2.getRecords());

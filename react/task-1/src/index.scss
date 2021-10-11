@@ -6,26 +6,46 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.page {
-    width: 100vw;
+#root {
     height: 100vh;
     display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-    &__content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin: auto;
+.login {
+    background-color: green;
+}
+
+.logout {
+    background-color: cornflowerblue;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg); 
+    }
+    to {
+        transform: rotate(360deg); 
     }
 }
 
-.navigation {
-    list-style-type: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
+.spinner {
+    display: inline-block;
+    border: 3px solid #ccc;
+    border-left-color: transparent;
+    animation: spin .5s infinite linear;
+    border-radius: 50%;
+}
 
-    &__item {
-        margin: 8px;
-    }
+.btn {
+    height: 48px;
+    color: #fff;
+    border-radius: 8px;
+    width: 120px;
+    outline: none;
+    border: none;
+    text-transform: uppercase;
+    padding: 8px;
+    cursor: pointer;
 }

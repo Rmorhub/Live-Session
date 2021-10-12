@@ -13,39 +13,38 @@ import './index.scss';
 class Auth extends React.Component {
   state = {
     isLoggedIn: false,
+    isProccesing: false,
   };
 
-  spinnerShow = () => {
+  loginHandler = () => {
     this.setState({
-      isLoggedIn: null,
+      isProccesing: true,
     });
-    setTimeout(() => this.handleLogin(), 2000);
+    setTimeout(
+      () =>
+        this.setState({
+          isLoggedIn: true,
+          isProccesing: false,
+        }),
+      2000,
+    );
   };
 
-  handleLogin = () => {
-    this.setState({
-      isLoggedIn: true,
-    });
-  };
-
-  handleLogout = () => {
+  logoutHandler = () => {
     this.setState({
       isLoggedIn: false,
     });
   };
 
   render() {
-    if (this.state.isLoggedIn === null) {
-      return (
-        <div className="panel">
-          <Spinner size={40} />
-        </div>
-      );
+    const { isLoggedIn, isProccesing } = this.state;
+    if (isProccesing) {
+      return <Spinner size={40} />;
     }
-    return this.state.isLoggedIn ? (
-      <Logout onLogout={this.handleLogout} />
+    return isLoggedIn ? (
+      <Logout onLogout={this.logoutHandler} />
     ) : (
-      <Login onLogin={this.spinnerShow} />
+      <Login onLogin={this.loginHandler} />
     );
   }
 }
